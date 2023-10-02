@@ -1,0 +1,38 @@
+package OopsTask;
+
+ class Circle
+ {
+	 int radius;
+	 double Circumference;
+	 
+	 public Circle()
+	 {
+		  radius=4;
+	 }
+	 public Circle(int radius1)
+	 {
+		 this. radius=radius1;
+	 }
+	 
+	 public double Circumference() {
+		  Circumference=2*3.14* radius;
+		  return Circumference;
+	 }
+	 
+	
+ }
+public class CircleCons {
+
+	public static void main(String[] args) {
+		Circle obj=new Circle();
+		obj.Circumference();
+        System.out.println("circumference of circle ="+obj.Circumference);
+      
+      Circle obj2=new Circle(6);
+      obj2.Circumference();
+      System.out.println("circumference of circle2 ="+obj2.Circumference);
+}
+}
+====O/P= 
+circumference of circle =25.12
+circumference of circle2 =37.68

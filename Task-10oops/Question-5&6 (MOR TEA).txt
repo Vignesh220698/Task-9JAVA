@@ -1,0 +1,112 @@
+package OopsTask;
+
+   class BaseTea
+   {
+	   public void PrepareTea() {
+		   System.out.println("Tea with Hot water and Tea Leaves");
+	   }
+	   
+	   public void Addmilk() {
+		   System.out.println("Add milk to basic tea");
+	   }
+	   
+	   public void Addsugar() {
+		   System.out.println("Add sugar to base Tea");
+	   }
+	   public void preparing() {
+			  System.out.println("BaseTea");
+		  }
+	   public void Timing() {
+			  System.out.println("5 mins");
+		  }
+   }
+ class Blacktea extends BaseTea{
+	  public void preparing() {
+		  System.out.println("Black tea");
+	  }
+	  public void Timing() {
+		  System.out.println("9 mins");
+	  }
+	 
+	 
+ }
+ class Greentea extends BaseTea{
+	 public void preparing() {
+		  System.out.println("Green Tea");
+	  }
+	 public void Timing() {
+		  System.out.println("7 mins");
+	  }
+	 
+ }
+ class Herbaltea extends BaseTea{
+	 public void preparing() {
+		  System.out.println("HerbalTea");
+	  }
+	 public void Timing() {
+		  System.out.println("8 mins");
+	  }
+	 
+ }
+public class InheritTea {
+
+	public static void main(String[] args) {
+	
+	
+          BaseTea Tea =new BaseTea();
+          Tea.preparing();
+            Tea.Addmilk();
+            Tea.Addsugar();
+            Tea.PrepareTea();
+            Tea.Timing();
+            System.out.println();
+            
+          Blacktea Blacktea=new Blacktea();
+          Blacktea.preparing();
+           Blacktea.PrepareTea();
+           Blacktea.Addmilk();
+           Blacktea.Addsugar();
+           Blacktea.Timing();
+           System.out.println();
+           
+           
+          Greentea Greentea=new Greentea();
+          Greentea.preparing();
+          Greentea.Addmilk();
+          Greentea.Addsugar();
+          Greentea.PrepareTea();
+          Greentea.Timing();
+          System.out.println();
+        
+        
+          Herbaltea Herbaltea=new Herbaltea();
+          Herbaltea.preparing();
+          Herbaltea.PrepareTea();
+          Herbaltea.Addsugar();
+          Herbaltea.Timing();
+           
+	}
+}
+====O/P=
+BaseTea
+Add milk to basic tea
+Add sugar to base Tea
+Tea with Hot water and Tea Leaves
+5 mins
+
+Black tea
+Tea with Hot water and Tea Leaves
+Add milk to basic tea
+Add sugar to base Tea
+9 mins
+
+Green Tea
+Add milk to basic tea
+Add sugar to base Tea
+Tea with Hot water and Tea Leaves
+7 mins
+
+HerbalTea
+Tea with Hot water and Tea Leaves
+Add sugar to base Tea
+8 mins

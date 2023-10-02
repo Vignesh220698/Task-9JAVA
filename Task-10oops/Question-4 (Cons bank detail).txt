@@ -1,0 +1,110 @@
+package OopsTask;
+
+class Account
+{   
+	double balance;
+	double withdraw;
+	//double AvailBal;
+	double deposit;
+ 
+	public Account() {
+		balance=1000.0;
+		 deposit=5000;
+		 withdraw=2000;
+   }
+  
+	public Account(double balance,double deposit, double withdraw)
+	{
+		this.balance=balance;
+		this.deposit= deposit;
+		this.withdraw=withdraw;
+	}
+	
+
+	
+	public  double AvailBal() {
+		   double AvailBal =  deposit()-withdraw;
+		  return AvailBal;
+	}
+	
+	
+	public void withdraw()
+	{
+		
+				
+		if (withdraw > 0 || withdraw <= balance) {
+            
+            System.out.println("Withdrawn:" + withdraw);
+            
+        } else if (withdraw <= 0) {
+        	
+            System.out.println("Invalid withdrawal amount. Please enter a positive value.");
+        } else {
+        	
+            System.out.println("Insufficient balance. Cannot withdraw.");
+        }
+		
+	}
+	public double deposit()
+	{
+		
+		double deposit1=(balance + deposit);
+		if(deposit>0)
+		{
+			System.out.println("Balance After deposit  :"   + deposit1 );
+		}else {
+			System.out.println("Invalid Transaction");
+		}
+		
+		return deposit1;
+	}
+	
+}
+
+
+public class BankCons {
+
+	public static void main(String[] args) {
+	      Account obj = new Account();	
+              obj.withdraw();
+              obj.AvailBal();
+           
+              System.out.println();
+              
+              System.out.println("Old balance = "+ obj.balance );
+              System.out.println("Deposited Amount = "+ obj.deposit);
+              System.out.println("AvailBal = "+ obj.AvailBal());
+                            
+              System.out.println();
+                            
+              Account obj1 = new Account(2000,5000,4000);	
+              obj1.withdraw();
+              obj1.AvailBal();
+           
+              System.out.println();
+              
+              System.out.println("Old balance = "+ obj1.balance );
+             
+              System.out.println("Deposited Amount = "+ obj1.deposit);
+              
+              System.out.println("AvailBal = "+ obj1.AvailBal());
+            	}
+
+}
+====O/P ==
+Withdrawn:2000.0
+Balance After deposit  :6000.0
+
+Old balance = 1000.0
+Deposited Amount = 5000.0
+Balance After deposit  :6000.0
+AvailBal = 4000.0
+
+Withdrawn:4000.0
+Balance After deposit  :7000.0
+
+Old balance = 2000.0
+Deposited Amount = 5000.0
+Balance After deposit  :7000.0
+AvailBal = 3000.0
+

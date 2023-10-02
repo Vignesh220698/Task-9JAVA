@@ -1,0 +1,60 @@
+package OopsTask;
+
+
+class person {
+
+
+	 int Age;
+	 String name;
+
+
+	public person() {
+		this.name = name;
+		this.Age =  Age;
+	}
+
+	public int getAge() {
+		return Age;
+	}
+
+	public void setAge(int Age) {
+		this.Age = Age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}
+
+public class GetterMethods {
+
+	public static void main(String[] args) {
+
+		person obj =new person();
+		obj.setName("Vignesh");
+		obj.setAge(24);
+		
+		
+		person obj1 =new person();
+		obj1.setName("Rajesh");
+		obj.setAge(24);
+
+		System.out.println("Name :"+obj1.getName());
+		System.out.println("Id :"+obj1.getAge());
+
+		System.out.println("Name :"+obj.getName());
+		System.out.println("Id :"+obj.getAge());
+	}
+}
+====O/P==
+Name :Vignesh
+Id :24
+
+Name :Rajesh
+Age :25
+

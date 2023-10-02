@@ -1,0 +1,128 @@
+package OopsTask;
+
+
+class employee{
+
+	int id;
+	String Firstname;
+	String Lastname;
+	int Sal;
+	
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstname() {
+		return Firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		Firstname = firstname;
+	}
+
+	public String getLastname() {
+		return Lastname;
+	}
+
+	public void setLastname(String lastname) {
+		Lastname = lastname;
+	}
+
+	public int getSal() {
+		return Sal;
+	}
+
+	public void setSal(int sal) {
+		Sal = sal;
+	}
+	public int AnnualSalary() {
+		int AnnualSalary= Sal*12;
+		return AnnualSalary;
+	}
+ 
+  public int newsal()
+  {
+	  int newsal=(int) (Sal+(Sal*0.1));
+	  return newsal;
+  }
+  public int NewAnnualSal() {
+		
+		int NewAnnualSal =newsal()*12;
+			return NewAnnualSal;
+	 }
+
+}
+
+public class EmployeeDetails {
+
+	public static void main(String[] args) {
+
+		employee obj =new employee();
+          obj.setFirstname("Vignesh");
+          obj.setLastname("S");
+		  obj.setId(100);
+		  obj.setSal(60000);
+		 		  
+		  obj.AnnualSalary();
+		  obj.newsal();
+		  obj.NewAnnualSal();
+		  
+		  System.out.println("Employee");
+		  System.out.println("Name: "+obj.getFirstname());
+		  System.out.println("lastname: "+obj.getLastname());
+		  System.out.println("id: "+obj.getId());
+		  System.out.println();
+		  System.out.println("sal: "+obj.getSal());
+		  System.out.println("Annual Salary="+obj.AnnualSalary());
+		  System.out.println("New salary="+obj.newsal());
+		  System.out.println("New Annual Salary="+obj.NewAnnualSal());
+		  
+		  System.out.println();
+		  
+		  employee obj1 =new employee();
+		  obj1.setFirstname("Rajesh");
+                  obj1.setLastname("S");
+		  obj1.setId(101);
+		  obj1.setSal(61000);
+		 		  
+		  obj1.AnnualSalary();
+		  obj1.newsal();
+		  obj1.NewAnnualSal();
+		  
+		  System.out.println("Employee");
+		  System.out.println("Name: "+obj1.getFirstname());
+		  System.out.println("lastname: "+obj1.getLastname());
+		  System.out.println("id: "+obj1.getId());
+		  System.out.println();
+		  System.out.println("sal: "+obj1.getSal());
+		  System.out.println("Annual Salary="+obj1.AnnualSalary());
+		  System.out.println("New salary="+obj1.newsal());
+		  System.out.println("New Annual Salary="+obj1.NewAnnualSal());
+	}
+}
+=====O/P=
+Employee
+Name: Vignesh
+lastname: S
+id: 100
+
+sal: 60000
+Annual Salary=720000
+New salary=66000
+New Annual Salary=792000
+
+Employee
+Name: Rajesh
+lastname: S
+id: 101
+
+sal: 61000
+Annual Salary=732000
+New salary=67100
+New Annual Salary=805200

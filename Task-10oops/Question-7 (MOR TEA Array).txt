@@ -1,0 +1,140 @@
+package OopsTask;
+
+ class BaseTea1
+{
+	public void PrepareTea() {
+		System.out.println("Tea with Hot water,Tea Leaves");
+	}
+
+	public void Addmilk() {
+		System.out.println("Add milk ");
+	}
+
+	public void Addsugar() {
+		System.out.println("Add sugar ");
+	}
+	public void preparing() {
+		System.out.println("BaseTea");
+	}
+	public void Timing() {
+		System.out.println("Brew time 0f 5 mins");
+	}
+}
+class Blacktea1 extends BaseTea1{
+	public void preparing() {
+		System.out.println("Black tea");
+	}
+	public void Timing() {
+		System.out.println("Brew time 0f 9 mins");
+	}
+
+
+}
+class Greentea1 extends BaseTea1{
+	public void preparing() {
+		System.out.println("Green Tea");
+	}
+	public void Timing() {
+		System.out.println("Brew time 0f 7 mins");
+	}
+
+}
+class Herbaltea1 extends BaseTea1{
+	public void preparing() {
+		System.out.println("HerbalTea");
+	}
+	public void Timing() {
+		System.out.println("Brew time 0f 8 mins");
+	}  
+
+}
+public class InheritTeaArray {
+
+
+	public static void main(String[] args) {
+
+		BaseTea1[] tea1 = new BaseTea1[1];
+
+		tea1[0] = new BaseTea1();
+		
+
+		for (BaseTea1 Basetea : tea1) {
+
+
+			Basetea.preparing();
+			Basetea.PrepareTea();
+			Basetea.Addmilk();
+			Basetea.Addsugar();
+			Basetea.Timing();
+		}
+		
+		System.out.println();
+
+		Blacktea1 [] tea2 =new Blacktea1[1];
+
+		tea2[0] =new Blacktea1();
+
+		for (Blacktea1 Blacktea : tea2) {
+
+			Blacktea.preparing();
+			Blacktea.PrepareTea();
+			Blacktea.Addmilk();
+			Blacktea.Addsugar();
+			Blacktea.Timing();
+		}
+		
+		System.out.println();
+
+		Greentea1[] tea3 = new Greentea1[1];
+
+		tea3[0]  =new Greentea1();
+
+		for(Greentea1 Greentea : tea3)
+		{
+			Greentea.preparing();
+			Greentea.PrepareTea();
+			Greentea.Addmilk();
+			Greentea.Addsugar();
+			Greentea.Timing();
+		}
+
+        System.out.println();
+        
+		Herbaltea1[] tea4 =new Herbaltea1[1];
+		tea4[0] = new Herbaltea1();
+
+		for(Herbaltea1 Herbaltea :tea4 )
+
+		{
+
+			Herbaltea.preparing();
+			Herbaltea.PrepareTea();
+			Herbaltea.Addsugar();
+			Herbaltea.Timing();
+		}
+
+	}
+}
+====O/P=
+BaseTea
+Tea with Hot water,Tea Leaves
+Add milk 
+Add sugar 
+Brew time 0f 5 mins
+
+Black tea
+Tea with Hot water,Tea Leaves
+Add milk 
+Add sugar 
+Brew time 0f 9 mins
+
+Green Tea
+Tea with Hot water,Tea Leaves
+Add milk 
+Add sugar 
+Brew time 0f 7 mins
+
+HerbalTea
+Tea with Hot water,Tea Leaves
+Add sugar 
+Brew time 0f 8 mins

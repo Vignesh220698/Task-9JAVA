@@ -8,14 +8,6 @@ class employee{
 	String Lastname;
 	int Sal;
 	
-//	public employee(int id,String Firstname,String Lastname,int sal) {
-//         
-//		this.id=id;
-//		this .Firstname=Firstname;
-//		this.Lastname=Lastname;
-//		this.Sal=sal;
-//		
-// }
 
 	public int getId() {
 		return id;

@@ -4,8 +4,7 @@ class Account
 {   
 	double balance;
 	double withdraw;
-	//double AvailBal;
-	double deposit;
+        double deposit;
  
 	public Account() {
 		balance=1000.0;

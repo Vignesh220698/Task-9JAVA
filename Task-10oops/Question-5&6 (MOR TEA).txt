@@ -7,11 +7,11 @@ package OopsTask;
 	   }
 	   
 	   public void Addmilk() {
-		   System.out.println("Add milk to basic tea");
+		   System.out.println("Add milk ");
 	   }
 	   
 	   public void Addsugar() {
-		   System.out.println("Add sugar to base Tea");
+		   System.out.println("Add sugar");
 	   }
 	   public void preparing() {
 			  System.out.println("BaseTea");
@@ -89,24 +89,24 @@ public class InheritTea {
 }
 ====O/P=
 BaseTea
-Add milk to basic tea
-Add sugar to base Tea
+Add milk 
+Add sugar
 Tea with Hot water and Tea Leaves
 5 mins
 
 Black tea
 Tea with Hot water and Tea Leaves
-Add milk to basic tea
-Add sugar to base Tea
+Add milk 
+Add sugar
 9 mins
 
 Green Tea
-Add milk to basic tea
-Add sugar to base Tea
+Add milk 
+Add sugar
 Tea with Hot water and Tea Leaves
 7 mins
 
 HerbalTea
 Tea with Hot water and Tea Leaves
-Add sugar to base Tea
+Add sugar
 8 mins

@@ -9,9 +9,9 @@ package OopsTask;
 	 {
 		  radius=4;
 	 }
-	 public Circle(int radius1)
+	 public Circle(int radius)
 	 {
-		 this. radius=radius1;
+		 this. radius=radius;
 	 }
 	 
 	 public double Circumference() {
@@ -24,8 +24,8 @@ package OopsTask;
 public class CircleCons {
 
 	public static void main(String[] args) {
-		Circle obj=new Circle();
-		obj.Circumference();
+	Circle obj=new Circle();
+        obj.Circumference();
         System.out.println("circumference of circle ="+obj.Circumference);
       
       Circle obj2=new Circle(6);

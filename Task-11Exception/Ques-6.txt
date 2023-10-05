@@ -10,7 +10,7 @@ class InvalidPasswordException extends Exception
 	 }
  }
 public class LoginExcep {
-	//private static String CorrectPassword = "secret123";
+	
 	
 	static void  password() throws Exception {
 		
@@ -32,7 +32,7 @@ public class LoginExcep {
 	
 	public static void main(String[] args) throws Exception {
 
-		//LoginExcep obj = new LoginExcep();
+		
         try {
 			password();
 		} catch (InvalidPasswordException e) {

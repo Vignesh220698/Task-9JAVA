@@ -1,0 +1,50 @@
+package excepTasks;
+
+import java.util.Scanner;
+
+class InvalidPasswordException extends Exception
+ {
+	 public InvalidPasswordException(String s) {
+		 
+		 super(s);
+	 }
+ }
+public class LoginExcep {
+	//private static String CorrectPassword = "secret123";
+	
+	static void  password() throws Exception {
+		
+		 String CorrectPassword = "secret123";
+
+		Scanner sc =new Scanner(System.in);
+		 System.out.println("Enter the password");
+		 
+		 String UserPassword = sc.nextLine();
+		
+		if (UserPassword != CorrectPassword)
+		{
+			System.out.println("invalid password");
+			throw new InvalidPasswordException("enter valid password");
+		}else {
+			System.out.println("valid password");
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+
+		//LoginExcep obj = new LoginExcep();
+        try {
+			password();
+		} catch (InvalidPasswordException e) {
+			
+			System.out.println("Enter valid passsword" );
+		}
+
+	}
+ 
+}
+O/P-
+Enter the password
+dugfy12
+invalid password
+Enter valid passsword

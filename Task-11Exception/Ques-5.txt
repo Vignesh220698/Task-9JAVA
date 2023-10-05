@@ -1,0 +1,34 @@
+package excepTasks;
+
+import java.util.Scanner;
+
+public class ArithmeticExcep {
+
+	public static void main(String[] args) {
+		
+		int A=0;
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the value of i :");
+         int i = sc.nextInt();
+         
+         System.out.println("Enter the value of j:");
+         int j = sc.nextInt();
+         
+        try {
+          A= i/j;
+        }catch(ArithmeticException e){
+        	System.out.println("Arithmetic Exception" +A );
+        	
+        }catch(Exception e){
+        	System.out.println("Arithmetic Exception1" +A );
+        	
+        }
+        
+	}
+
+}
+O/P-Enter the value of i :
+4
+Enter the value of j:
+0
+Arithmetic Exception0

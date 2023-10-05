@@ -1,0 +1,26 @@
+package exceptExamp;
+
+public class Throwexp1 {
+	
+ 
+	       static  void age(int age)
+	        {
+	  if(age<18) {
+		  System.out.println("invalid");
+		 throw new ArithmeticException("Invalid age");
+	  }else {
+		  System.out.println("valid");
+	  }
+ }
+
+	public static void main(String[] args) {
+		
+		age(13);
+	}
+
+}
+
+O/P---Exception in thread "main" invalid
+java.lang.ArithmeticException: Invalid age
+	at vig/exceptExamp.Throwexp1.age(Throwexp1.java:10)
+	at vig/exceptExamp.Throwexp1.main(Throwexp1.java:18)

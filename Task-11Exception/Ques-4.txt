@@ -1,0 +1,54 @@
+package excepTasks;
+
+import java.util.Scanner;
+
+public class StringBoudIdx {
+
+	public static void main(String[] args) {
+		
+		        Scanner sc = new Scanner(System.in);
+		        System.out.println("Enter the string");
+		        String str = sc.nextLine();
+		
+		try {
+		        char a =str .charAt(9);
+		        
+		        System.out.println(a);
+		}catch(StringIndexOutOfBoundsException e)
+		{     
+             System.out.println("String boundary Exception");
+		}
+	}
+
+}
+O/P-
+Enter the string
+vignehhhh
+String boundary Exception
+
+===================================================
+
+package excepTasks;
+
+import java.util.Arrays;
+
+public class ArrayBoudIdx {
+
+	public static void main(String[] args) {
+
+		try{
+			Arrays[] A	= new Arrays[10];
+
+			System.out.println(A[20]);
+
+		}catch(ArrayIndexOutOfBoundsException e){
+
+			System.out.println("Array Boundary Index ");
+
+		}
+
+	}
+
+}
+O/P-Array Boundary Index 
+=====================================================

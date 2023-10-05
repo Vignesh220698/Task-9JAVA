@@ -1,0 +1,24 @@
+package exceptExamp;
+
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FilenotfoundExp {
+
+	public static void main(String[] args) throws Exception {
+		
+		try {
+			FileOutputStream file = new FileOutputStream("abc.txt");
+			
+			throw new FileNotFoundException();
+		} catch (Exception e) {
+			
+			System.out.println("File not found");
+		} 
+		
+	}
+
+}
+O/P-File not found

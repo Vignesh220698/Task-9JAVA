@@ -1,0 +1,41 @@
+package collectionsTask;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class ListToArray {
+
+	public static void main(String[] args) {
+		
+		
+		LinkedList<String> list = new LinkedList<String>();
+		
+		     list.add("A");
+		     list.add("B");
+		     list.add("C");
+		     list.add("D");
+		     list.add("E");
+		
+		ArrayList<String> array = new ArrayList<String>(list);
+		
+		array.add("F");
+		array.add("G");
+		array.add("H");
+		
+		
+		for(String name : array) {
+			System.out.println(name);
+		}
+		
+	}
+
+}
+---------------O/P--
+A
+B
+C
+D
+E
+F
+G
+H

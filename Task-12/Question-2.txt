@@ -1,0 +1,27 @@
+package collectionsTask;
+
+import java.util.ArrayList;
+
+public class ArrylitTask {
+
+	public static void main(String[] args) {
+		
+		ArrayList<String> sname= new ArrayList<String>();
+		
+		sname.add("Vignesh");
+		sname.add("Sathish");
+		sname.add("Rajesh");
+		sname.add("Rahul");
+		sname.add("Ajay");
+		System.out.println("Before Remove" + sname);
+		
+		sname.removeAll(sname);
+		System.out.println("After remove" +sname);
+		
+
+	}
+
+}
+----O/P-
+Before Remove[Vignesh, Sathish, Rajesh, Rahul, Ajay]
+After remove[]

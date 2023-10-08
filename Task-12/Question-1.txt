@@ -1,0 +1,53 @@
+package ExampleHR;
+
+public class Employee {
+
+	String name;
+	int Id;
+	double sal;
+	
+	public String printname() {
+		
+		name="Vignesh";
+		return name;
+	}
+	public double printsalary() {
+		sal =500000.0;
+		return sal;
+	}
+	public int printid() {
+	return Id =100;	
+	}
+	
+	public static void main(String[] args) {
+		
+
+		
+	}
+
+}
+--------------------------------------------------------
+package ExampleHRTest;
+
+import ExampleHR.Employee;
+
+public class EmployeTest {
+
+	public static void main(String[] args) {
+		Employee obj = new Employee();
+		
+		obj.printname();
+		obj.printsalary();
+		obj.printid();
+		
+		System.out.println(obj.printname());
+		System.out.println(obj.printsalary());
+		System.out.println(obj.printid());
+
+	}
+
+}
+----O/P--
+Vignesh
+500000.0
+100

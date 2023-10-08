@@ -1,0 +1,38 @@
+package collectionsTask;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Treetask {
+
+	public static void main(String[] args) {
+		
+		
+		TreeMap<String , Integer> stu = new TreeMap<String , Integer>();
+		
+		stu.put("Vignesh",100);
+		stu.put("Ajay", 101);
+		stu.put("Sathish",102);
+		stu.put("Rajesh",103);
+		stu.put("Zafar",104);
+		stu.put("Krish",105);
+		
+		
+		
+		for(Map.Entry name :stu.entrySet()) {
+			
+			System.out.println(name.getKey());
+		    
+		}
+		
+
+	}
+
+}
+-------O/P--
+Ajay
+Krish
+Rajesh
+Sathish
+Vignesh
+Zafar

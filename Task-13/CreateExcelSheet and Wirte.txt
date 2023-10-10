@@ -1,0 +1,57 @@
+package file;
+
+import java.io.FileOutputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelFileCreationTask {
+
+	public static void main(String[] args) {
+
+		XSSFWorkbook book = new XSSFWorkbook();
+		XSSFSheet sheet =book.createSheet("1st sheet");
+
+		Object[][] data ={
+				{"Name","Age","Email"},
+				{"John Doe,",30,"john@test.com"},
+				{"John Doe,",28," john@test.com"},
+				{"Bob Smith",35," jacky@example.com"},
+				{"Swapni",37," joe@example.com."}
+		};
+
+		int rowcount=0;
+
+		for(Object[] row1:data) {
+
+			XSSFRow row =sheet.createRow(rowcount++);
+
+			int colcount=0;
+			for(Object col: row1) {
+
+				XSSFCell cell =row.createCell(colcount++);
+
+				if(col instanceof String) {
+					cell.setCellValue((String) col);
+				}
+				if(col instanceof Integer) {
+					cell.setCellValue((Integer) col);
+				}
+			}
+			try {
+				FileOutputStream output = new FileOutputStream("Secondfile.xlxs");
+				book.write(output);
+
+			}catch(Exception e) {
+				System.out.println("Not Created");
+
+			}
+			
+		}
+     	System.out.println("File Created");
+	}
+}
+-----O/P--
+File Created

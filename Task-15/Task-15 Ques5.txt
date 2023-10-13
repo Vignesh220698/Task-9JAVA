@@ -1,0 +1,25 @@
+package automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task1502 {
+
+	public static void main(String[] args) {
+		
+		// To create a driver need to add web driver dependency in POM.xml from mvn Repository
+		
+		// Need to create obj for the ChromeDriver class with the reference of WebDriver interface class
+		WebDriver driver = new ChromeDriver();
+		
+		// Need to launch Url by using the get() method and Maximize
+		
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		
+		//lose the browser using close() method
+		
+		driver.close();
+	}
+
+}

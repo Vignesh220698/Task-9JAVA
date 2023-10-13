@@ -1,0 +1,43 @@
+package automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task1501 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("APjFqb")).sendKeys("Selenium Browser Driver");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("APjFqb")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		
+		String Actualtitle=driver.getTitle();
+		System.out.println(Actualtitle);
+
+		String Expectedtitle= "Browser";
+		Thread.sleep(2000);
+		
+		if(Actualtitle.contains(Expectedtitle)) {
+			System.out.println("Page displayed ");
+
+		}else {
+			System.out.println("Not displayed");
+		}
+
+		driver.close();
+
+	}
+
+}
+----------
+O/P:
+Selenium Browser Driver - Google Search
+Page displayed

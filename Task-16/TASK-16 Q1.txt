@@ -1,0 +1,44 @@
+package automation;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class Task1601 {
+
+	public static void main(String[] args) {
+
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.google.com/");
+
+		String currenturl =driver.getCurrentUrl();
+              //Print the URL
+
+		System.out.println(currenturl);
+
+                 //Page Reload
+
+		driver.navigate().refresh();
+		
+		String Actualtitle=driver.getTitle();
+		System.out.println(Actualtitle);
+
+		String Expectedtitle= "Google";
+		
+		if(Actualtitle.contains(Expectedtitle)) {
+			System.out.println("Page displayed ");
+
+		}else {
+			System.out.println("Not displayed");
+		}
+		driver.close();
+
+	}
+
+}
+-----------------
+O/P-
+https://www.google.com/
+Google
+Page displayed 

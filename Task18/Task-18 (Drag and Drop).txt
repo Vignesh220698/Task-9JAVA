@@ -1,0 +1,45 @@
+package automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Task18DragAndDrop {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://jqueryui.com/droppable/");
+
+		driver.switchTo().frame(0);
+
+		WebElement source=driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement dest=driver.findElement(By.xpath("//div[@id='droppable']"));
+
+		Actions Bulid = new Actions(driver);
+		Bulid.dragAndDrop(source, dest).perform();
+
+
+		String Actual =dest.getCssValue("background");
+
+		String Excepted ="rgb(255, 250, 144)";
+
+		if(Actual.contains(Excepted)) {
+			System.out.println("Colour Matched And Dropped");
+
+		}else {
+			System.out.println("Colour  Miss Matched ");
+		}
+
+
+		System.out.println(dest.getCssValue("background"));
+	}
+
+}
+==============================================
+O/P=
+Colour Matched And Dropped
+rgb(255, 250, 144) none repeat scroll 50% 0% / auto padding-box border-box

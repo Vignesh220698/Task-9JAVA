@@ -1,0 +1,57 @@
+package automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Task18FB {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		driver.get("https://www.facebook.com/");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//a[@role='button'])[2]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Test");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("User");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(("(//input[@type='text'])[4]"))).sendKeys("testuser@test.com");
+
+		driver.findElement(By.xpath(("(//input[@type='password'])[2]"))).sendKeys("Abcde@123");
+		
+		driver.findElement(By.xpath("//input[@name='reg_email_confirmation__']")).sendKeys("testuser@test.com");
+
+		
+		WebElement select1 =driver.findElement(By.id("day"));
+		Select option= new Select(select1);
+		option.selectByVisibleText("11");
+		
+		WebElement select2=driver.findElement(By.id("month"));
+		Select option2 = new Select(select2);
+		option2.selectByIndex(6);
+		
+		WebElement year= driver.findElement(By.id("year"));
+		Select year1 =new Select(year);
+		year1.selectByValue("1985");
+		
+		//Radio Button(male)
+		driver.findElement(By.xpath(("//input[@value='2']"))).click();
+		//Submit button
+		driver.findElement(By.xpath(("//button[@name='websubmit']"))).click();
+		
+		//Verify Signup
+        boolean pageverify= driver.findElement(By.xpath("//div[text()='Sign Up']")).isDisplayed();
+         System.out.println("Page displayed="+pageverify);
+	     driver.close();
+
+	}
+
+}
+==============
+O/P=
+Page displayed=yes

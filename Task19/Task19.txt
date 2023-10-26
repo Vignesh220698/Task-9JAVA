@@ -1,0 +1,63 @@
+package automation;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task19 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://www.guvi.in/register/");
+		Thread.sleep(2000);
+
+        //Locating FirstName & LastName Field by using ID locator
+		driver.findElement(By.id("firstName")).sendKeys("Vignesh");
+		//driver.findElement(By.xpath("(//input[contains(@class,'form')])[1]")).sendKeys("Vignesh");	
+		driver.findElement(By.id("lastName")).sendKeys("S");
+		
+		//Locating Email & PassWord Field by using Xpath locator
+		
+		driver.findElement(By.xpath("//input[@id='passwordInput']")).sendKeys("Vignes@123");
+		
+		//Locating MobileNumber Field using Name Locator
+		driver.findElement(By.name("mobileNumberInput")).sendKeys("9876543234");
+		
+		//Locating Signup button using CSS selector
+		driver.findElement(By.cssSelector("button[type='button']")).click();
+		
+		
+         //Getting the BackGround color of the Signup Button using getCssValuve Method 
+		
+		WebElement color=driver.findElement(By.cssSelector("button[type='button']"));
+		String BGcolor = color.getCssValue("background-color");
+		System.out.println(BGcolor);
+		
+        //To display the first button present in page Using TagName
+		WebElement tag=driver.findElement(By.tagName("button"));
+		System.out.println(tag.getText());
+		
+		//To display the All buttons present in page
+		List<WebElement> tags = driver.findElements(By.tagName("button"));
+
+		for(WebElement All :tags) {
+
+			System.out.println(All.getText());
+		}
+
+		Thread.sleep(2000);
+
+		driver.close();
+	}
+
+}
+-----------------------------------------------
+O/P:
+rgba(13, 186, 75, 1)
+Sign up
+Sign up

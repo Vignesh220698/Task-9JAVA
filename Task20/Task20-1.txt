@@ -1,0 +1,51 @@
+package automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Task2001 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://jqueryui.com/datepicker/");
+		driver.switchTo().frame(0);
+
+		WebElement click= driver.findElement(By.xpath("//input[@id='datepicker']"));
+		Actions bulid = new Actions(driver);
+		bulid.moveToElement(click).click().perform();
+
+		WebElement Next= driver.findElement(By.xpath("//span[text()='Next']"));
+		bulid.moveToElement(Next).click().perform();
+		WebElement year=driver.findElement(By.xpath("//span[@class='ui-datepicker-year']"));
+		String yea=year.getText();
+		System.out.print(yea+" ");
+		WebElement month=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']"));
+
+		String mon=month.getText();
+		System.out.print(mon+" ");
+		WebElement date = driver.findElement(By.xpath("//table[@class='ui-datepicker-calendar']//tr[4]/td[4]"));
+		bulid.moveToElement(date).click().perform();
+
+		String Actualdate=date.getText();
+
+		String Excepteddate="22";
+
+		if(Actualdate.equals(Excepteddate)) {
+			
+			System.out.print(Actualdate);
+		}else {
+			System.out.print("Date not Matched");
+		}
+		
+		driver.quit();
+	}
+
+}
+--------------------------------------------------------
+O/P:
+2023 November 22

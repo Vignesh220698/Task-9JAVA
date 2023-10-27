@@ -1,0 +1,77 @@
+package automation;
+
+import static org.testng.Assert.assertEquals;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Task2002 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://www.guvi.in/register/");
+		Thread.sleep(2000);
+		//SignUp
+		String UN="Vignes1966201@gmail.com";
+		String PWD="Vignes@123";
+
+		driver.findElement(By.id("firstName")).sendKeys("Vignesh");	
+		driver.findElement(By.id("lastName")).sendKeys("S");
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(UN);
+		driver.findElement(By.xpath("//input[@id='passwordInput']")).sendKeys(PWD);
+		driver.findElement(By.name("mobileNumberInput")).sendKeys("9557742145");
+		Thread.sleep(2000);
+		WebElement signup=driver.findElement(By.xpath("//button[@id='signup']"));
+
+		Actions bulid= new Actions(driver);
+		bulid.moveToElement(signup).doubleClick().perform();
+		Thread.sleep(1000);
+		bulid.moveToElement(signup).doubleClick().perform();
+		Thread.sleep(3000);
+
+		//Signup Verification
+		String pagesource=driver.getPageSource();
+		Thread.sleep(3000);
+		if(pagesource.contains("Successfully Registered")){
+			System.out.println("User Registered in Sucessfully");
+		}else {
+			System.out.println("Unable to login");
+		}
+
+		//Login
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[text()='Proceed to Sign-in']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys(UN);
+		driver.findElement(By.xpath("//input[@id='login_password']")).sendKeys(PWD);
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		Thread.sleep(2000);
+
+		//login Verification
+
+		String Pagesou2=driver.getPageSource();
+		Thread.sleep(3000);
+		boolean Actual=Pagesou2.contains("Activation");
+		boolean Excepted= true;
+		assertEquals(Actual, Excepted);
+		System.out.println("User Loggedin Sucessfully:Asserted");
+
+		//method:2
+		//		if(Pagesou2.contains("Activation")) {
+		//			System.out.println("User Loggedin Sucessfully");
+		//		}else {
+		//			System.out.println("User Unable to Loggin");
+		//		}
+
+		driver.close();
+	}
+
+}
+----------------------------------------
+O/P:
+User Registered in Sucessfully
+User Loggedin Sucessfully:Asserted

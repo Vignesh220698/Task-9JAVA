@@ -14,23 +14,32 @@ public class Task2001 {
 
 		driver.get("https://jqueryui.com/datepicker/");
 		driver.switchTo().frame(0);
-
+                
+              //click to get calendar
 		WebElement click= driver.findElement(By.xpath("//input[@id='datepicker']"));
 		Actions bulid = new Actions(driver);
 		bulid.moveToElement(click).click().perform();
 
+ 		// click the next button in calendar
+
 		WebElement Next= driver.findElement(By.xpath("//span[text()='Next']"));
 		bulid.moveToElement(Next).click().perform();
+
+                   //get year text
 		WebElement year=driver.findElement(By.xpath("//span[@class='ui-datepicker-year']"));
 		String yea=year.getText();
 		System.out.print(yea+" ");
-		WebElement month=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']"));
 
+		//get month text
+		WebElement month=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']"));
 		String mon=month.getText();
 		System.out.print(mon+" ");
+
+		//get the particular date in calendar 
 		WebElement date = driver.findElement(By.xpath("//table[@class='ui-datepicker-calendar']//tr[4]/td[4]"));
 		bulid.moveToElement(date).click().perform();
-
+		
+		//date validation
 		String Actualdate=date.getText();
 
 		String Excepteddate="22";

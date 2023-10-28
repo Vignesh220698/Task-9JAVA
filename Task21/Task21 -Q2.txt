@@ -1,0 +1,51 @@
+package automation;
+
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Task2102Windows {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://the-internet.herokuapp.com/windows");
+		
+		WebElement clikk=driver.findElement(By.xpath("//a[text()='Click Here']"));
+		
+		Actions bulid = new Actions(driver);
+		bulid.moveToElement(clikk).click().perform();
+
+		//Switching to new window
+
+       Set<String> set=driver.getWindowHandles();
+       List<String> list = new ArrayList<String>(set);
+       
+       driver.switchTo().window(list.get(1));
+       
+       String source=driver.getPageSource();
+		
+       boolean actual=source.contains("New Window");
+       boolean expected= true;
+       assertEquals(actual, expected);
+       System.out.println("Window Switched and Verified");
+		
+       driver.close();
+       driver.quit();
+	}
+
+}
+-----------------------------------------------------------------------
+O/P:
+Window Switched and Verified

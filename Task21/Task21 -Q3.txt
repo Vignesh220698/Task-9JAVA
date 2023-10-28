@@ -1,0 +1,110 @@
+package automation;
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task2103NestedFrame {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get("https://the-internet.herokuapp.com/nested_frames");
+
+
+//Swith to top frame(parent frame)
+		WebElement Top=driver.findElement(By.xpath("//frame[@name='frame-top']"));
+		driver.switchTo().frame(Top);
+//verify the frames 
+		List<WebElement> list =driver.findElements(By.tagName("frame"));
+
+		if(list.size()==3) {
+			System.out.println("Frames are presented");
+		}else {
+			System.out.println("There are no three frames");
+		}
+//Switch to left frame
+		WebElement Left=driver.findElement(By.xpath("//frame[@name='frame-left']"));
+		driver.switchTo().frame(Left);
+//verify the text
+		WebElement Leftext= driver.findElement(By.tagName("body"));
+		String Text=Leftext.getText();
+
+		String Actual="LEFT";
+		String Excepted=Text;
+		assertEquals(Actual, Excepted);
+		System.out.println("Left Text present");
+//Switch to parent frame
+		driver.switchTo().parentFrame();
+//Switch to middle frame
+		WebElement middle=driver.findElement(By.xpath("//frame[@name='frame-middle']"));
+		driver.switchTo().frame(middle);
+//verify the text
+		WebElement Middletext= driver.findElement(By.tagName("body"));
+		String Text1=Middletext.getText();
+
+		String Actual1="MIDDLE";
+		String Excepted1=Text1;
+		assertEquals(Actual1, Excepted1);
+		System.out.println("Middle Text present");
+//switch to parent frame 
+		driver.switchTo().parentFrame();
+//switch to right frame
+		WebElement right=driver.findElement(By.xpath("//frame[@name='frame-right']"));
+		driver.switchTo().frame(right);
+//verify the text
+		WebElement RightText=driver.findElement(By.tagName("body"));
+		String RText=RightText.getText();
+		
+		if(RText.contains("Right")) {
+			System.out.println("Right Text Presented");
+		}else {
+			System.out.println("Text Not Presented");
+		}
+//switch to parent frame first
+		driver.switchTo().parentFrame();
+//Thn switch to default frame
+		driver.switchTo().defaultContent();
+//Swith to individual frame
+		WebElement bottom=driver.findElement(By.xpath("//frame[@name='frame-bottom']"));
+		driver.switchTo().frame(bottom);
+//verify the text
+		WebElement BottomText=driver.findElement(By.tagName("body"));
+		String BText=BottomText.getText();
+
+		if(BText.contains("BOTTOM")) {
+			System.out.println("Bottom Text Presented");
+		}else {
+			System.out.println("Text Not Presented");
+		}
+
+		driver.switchTo().defaultContent();
+
+//verify the title
+		//String title =driver.getTitle();
+		String Title=driver.getCurrentUrl();
+		
+	
+		if(Title.contains("frames")) {
+			System.out.println("Title Verified");
+		}else {
+			System.out.println("Title Mismatched");
+		}
+          driver.close();
+	}
+
+}
+---------------------------------------------
+O/P:
+Frames are presented
+Left Text present
+Middle Text present
+Text Not Presented
+Bottom Text Presented
+Title Verified

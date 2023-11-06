@@ -1,0 +1,81 @@
+package sqldemo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
+public class JDBCdemo {
+
+	public static void main(String[] args) {
+
+
+		String url ="jdbc:mysql://localhost:3306/employee2";
+		String UN="root";
+		String Pass="root";
+		try {
+			
+			//making connection b/w java <-> Sql
+			
+			Connection connect=DriverManager.getConnection(url, UN, Pass);			
+
+			if(connect != null) {
+				System.out.println("Connection Established");
+			}else{
+				System.out.println("Connection not Established");
+			}
+			//Executing the query by using Statement interface
+			
+			Statement sta = connect.createStatement();
+			String TabCreate="create table Emp2detail( empcode int not null ,empname varchar(20) not null,empage int not null,esalary decimal(10.00),primary key(empcode))";
+			sta.executeUpdate(TabCreate);
+
+			String dbselection="use employee2";
+			sta.executeUpdate(dbselection);
+
+			String insertvalue ="insert into emp2detail (empcode,empname,empage,esalary) values(101,'jenny',25,100000.00),(102,'jacky',30,200000.00),(103,'joe',20,400000.00),(104,'john',40,800000.00),(105,'Shamer',25,9000.00)";
+			sta.executeUpdate(insertvalue);
+
+        // Retriving data to print in console
+
+                        String retrive= "Select * from emp2detail";
+			
+			ResultSet result=sta.executeQuery(retrive);
+			
+			while(result.next()) {
+				
+				 System.out.println(result.getInt("empcode"));
+				 System.out.println(result.getString("empname"));
+				 System.out.println(result.getInt("empage"));
+				 System.out.println(result.getBigDecimal("esalary"));
+				
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}			
+	}
+}
+==========================
+O/P:
+Connection Established
+101
+jenny
+25
+100000
+102
+jacky
+30
+200000
+103
+joe
+20
+400000
+104
+john
+40
+800000
+105
+Shamer
+25
+9000
